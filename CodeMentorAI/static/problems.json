@@ -1,0 +1,324 @@
+[
+    {
+      "concept": 1,
+      "title": "Conditionals [If-else]",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Given an integer, check if it is even or odd."
+        },
+        {
+          "number": 2, 
+          "text": "Given two integers, find the larger one."
+        },
+        {
+          "number": 3,
+          "text": "Given a temperature in Celsius, convert it to Fahrenheit using the formula F = (C * 1.8) + 32. If the temperature is above 90°F, print “It’s hot outside!” otherwise, print “The temperature is pleasant”."
+        },
+        {
+          "number": 4, 
+          "text": "Given a year, check if it is a leap year or not. A leap year is divisible by 4, except for years that are divisible by 100. However, years that are divisible by 400 are also leap years."
+        },
+        {
+          "number": 5,
+          "text": "Given two numbers, a and b, find the value of a/b (b may be zero)."
+        },
+        {
+          "number": 6,
+          "text": "Given a point (x1, y1), find the quadrant in which this point lies."
+        },
+        {
+          "number": 7,
+          "text": "Given two points (x1, y1) and (x2, y2), find the slope and intercept of the line joining these two points (the line may be perfectly horizontal or vertical)." 
+        },
+        {
+          "number": 8,
+          "text": "Given a quadratic equation with coefficients a, b and c, find the two solutions (may be real or complex). You should not take the square root of a negative number in your code."
+        },
+        {
+          "number": 9, 
+          "text": "Given three points, find out whether they lie on the same straight line or not."
+        },
+        {
+          "number": 10,
+          "text": "Given three integers, find the smallest one."
+        }
+      ]
+    },
+    {
+      "concept": 2,
+      "title": "For Loops (without lists)", 
+      "questions": [
+        {
+          "number": 1,
+          "text": "Given a positive integer, print all integers from 1 up to this number."
+        },
+        {
+          "number": 2,
+          "text": "Given a positive integer, find out the sum of all integers from 1 up to this number."
+        },
+        {
+          "number": 3, 
+          "text": "Given a positive integer, find out its factorial."
+        },
+        {
+          "number": 4,
+          "text": "Given a positive integer, find out if it’s prime or not."
+        },
+        {
+          "number": 5,
+          "text": "Given a positive integer, find out the sum of all odd numbers from 1 up to this number."
+        },
+        {
+          "number": 6,
+          "text": "Given a positive integer, find out the sum of all even numbers from 2 up to this number."
+        },
+        {
+          "number": 7,
+          "text": "Given a positive integer, find the multiplication table of that integer up to 10."
+        },
+        {
+          "number": 8, 
+          "text": "Given a positive integer, find all its divisors."
+        },
+        {
+          "number": 9,
+          "text": "Given a positive integer, print each of its digits separately without converting the number into a string."
+        },
+        {
+          "number": 10,
+          "text": "Given a positive integer, convert it into binary, and vice-versa."
+        }
+      ]
+    },
+    {
+      "concept": 3,
+      "title": "For Loops (with lists)",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Given a list of numbers, find out its length and the sum of all these numbers."
+        },
+        {
+          "number": 2,
+          "text": "Given a list of numbers, find the squares of all the numbers."
+        },
+        {
+          "number": 3, 
+          "text": "Given a list of numbers, find out their mean and standard deviation."
+        },
+        {
+          "number": 4,
+          "text": "Given a list of integers, find all the even numbers in it and their count."
+        },
+        {
+          "number": 5,
+          "text": "Given a list of integers, find all the odd numbers in it and their count."
+        },
+        {
+          "number": 6,
+          "text": "Given a list of numbers, create another list in reverse order (without using list splicing)."
+        },
+        {
+          "number": 7,
+          "text": "Given a list of numbers, find out the maximum number."
+        },
+        {
+          "number": 8, 
+          "text": "Given a list of integers, find out the index of another given integer."
+        },
+        {
+          "number": 9,
+          "text": "Given a list of integers, find their Least Common Multiple (LCM) and Greatest Common Divisor (Divisor)."
+        },
+        {
+          "number": 10,
+          "text": "Create a list containing the first n integers in the Fibonacci series, where n is given by the user."
+        }
+      ]
+    },
+    {
+      "concept": 4,
+      "title": "Nested Loops",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Given a list of distinct numbers, create another list which contains the sum of all pairs of numbers in the given list (the same pair should not be taken twice)."
+        },
+        {
+          "number": 2,
+          "text": "Given a list of distinct numbers (may contain zero), create another list which contains the ratio of all pairs of numbers in the given list (the same pair should not be taken twice)."
+        },
+        {
+          "number": 3, 
+          "text": "Given a list of positive integers, find the factorial of all these numbers."
+        },
+        {
+          "number": 4,
+          "text": "Given a positive integer, find out all prime numbers from 1 up to this number." 
+        },
+        {
+          "number": 5,
+          "text": "Given a positive integer, find out the sum of all prime numbers from 1 up to this number."
+        },
+        {
+          "number": 6,
+          "text": "Given a list of numbers, create another list of co-primes and count how many co-primes are there in this given list."
+        },
+        {
+          "number": 7,
+          "text": "Given a list of integers, find out how many times each number occurs in this list and find their mode."
+        },
+        {
+          "number": 8, 
+          "text": "Given two matrices of the same dimensions, find their sum."
+        },
+        {
+          "number": 9,
+          "text": "Print the chessboard pattern, with white squares denoted by W and black squares by B."
+        },
+        {
+          "number": 10,
+          "text": "Given a list of integers, sort it in ascending order and find the median."
+        }
+      ]
+    },
+    {
+      "concept": 5,
+      "title": "Dictionaries", 
+      "questions": [
+        {
+          "number": 1,
+          "text": "Convert these two lists into a dictionary. Take the keys from the first list, and values from the second one.\nkeys = [‘Ten’, ‘Twenty’, ‘Thirty’]\nvalues = [10, 20, 30]"
+        },
+        {
+          "number": 2,
+          "text": "Merge these two dictionaries into one using for loop\ndict1 = {‘Ten’: 10, ‘Twenty’: 20, ‘Thirty’: 30}\ndict2 = {‘Thirty’: 30, ‘Fourty’: 40, ‘Fifty’: 50}"
+        },
+        {
+          "number": 3, 
+          "text": "Check if a key exists in a dictionary:\nsample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}\nkey_needed = ‘d’"
+        },
+        {
+          "number": 4,
+          "text": "Check if a value exists in a dictionary:\nsample_dict = {‘a’: 100, ‘b’: 200, ‘c’: 300}\nvalue_needed = 200"
+        },
+        {
+          "number": 5,
+          "text": "Create a new dictionary so that it only has the keys mentioned in another list\nsample_dict = { “name”: “Kelly”, “age”: 25, “salary”: 8000, “city”: “New york”}\n# Keys to extract\nkeys = [“name”, “salary”]"
+        },
+        {
+          "number": 6,
+          "text": "Remove a key from a dictionary:\ndict_name.pop(key_name)"
+        },
+        {
+          "number": 7,
+          "text": "What does this function return?\nUse pop to rename a key."
+        },
+        {
+          "number": 8, 
+          "text": "Create a dictionary to store the total marks of 5 students in the class in 3 subjects (Course1, Course2, Course3). The keys must be the student names, and the values must be the list of marks. Create another list which has the course names in the same order as the marks are stored in the dictionary values. Now write a nested for loop to print the marks for each student exam wise."
+        },
+        {
+          "number": 9,
+          "text": "Write a for loop to create another dictionary from the above where the marks are replaced by grades. Above 80 is A grade, 60–80 is B grade, 40–60 is C grade, and below 40 is F. Create another dictionary to store the max and average marks for each student. Use this dictionary to compute the final CPI/CGPA of the student. Course1 is of 4 credits, Course2 of 10 credits, and Course3 of 6 credits. Store these credits in a list. Write this dictionary as a json file, and read it back into a new dictionary."
+        },
+        {
+          "number": 10,
+          "text": "Create a dictionary of your marks in various subjects and then sort it by its values first in descending order, and then in or ascending order. Do not use any inbuilt sorting functions."
+        }
+      ]
+    },
+    {
+      "concept": 6,
+      "title": "Strings",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Write a python function that takes a string as input, and returns the string in reverse order (without using string splicing)."
+        },
+        {
+          "number": 2,
+          "text": "Write a python function that takes a string as input, and returns the number of vowels in it."
+        },
+        {
+          "number": 3, 
+          "text": "Write a python function that takes a string as input, and returns the number of words in it. Use space as a separator for words."
+        },
+        {
+          "number": 4,
+          "text": "Write a python function that takes a string as input, and returns the string with the first letter of each word capitalised."
+        },
+        {
+          "number": 5,
+          "text": "Write a python function that takes a string as input, and returns the length of the longest word in it. Use space as a separator for words."
+        },
+        {
+          "number": 6,
+          "text": "Write a python function that takes a string as input, and returns if its a valid email address."
+        },
+        {
+          "number": 7,
+          "text": "Write a python function that takes a string as input, and returns if its a valid mobile number in India."
+        },
+        {
+          "number": 8, 
+          "text": "Implement a simple encryption algorithm that can encrypt and decrypt strings."
+        },
+        {
+          "number": 9,
+          "text": "Write a python function that takes in a string and checks if its a palindrome (without using string splicing, case sensitive and ignoring spaces)."
+        },
+        {
+          "number": 10,
+          "text": "Write a python function that takes in a paragraph as input, and returns a list of sentences. Use full-stop, exclamation and question mark as the three allowed delimiters between sentences."
+        }
+      ]
+    },
+    {
+      "concept": 7,
+      "title": "Higher Level Programming Problems",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Find the exit path in a 2D maze from an arbitrary starting point."
+        },
+        {
+          "number": 2,
+          "text": "Given an arithmetic expression as an input string, solve the expression and print the result (without using the in-built eval function)."
+        },
+        {
+          "number": 3, 
+          "text": "Implement the Tic-Tac-Toe game. The program should allow two players to play against each other and display the board after each move."
+        },
+        {
+          "number": 4,
+          "text": "Determine whether a given graph is planar or not."
+        },
+        {
+          "number": 5,
+          "text": "Simulate the motion of a particle in an arbitrary polygon. The particle moves in straight lines between collisions, and the collisions could be inelastic."
+        },
+        {
+          "number": 6,
+          "text": "Given a sorted list of integers, search for a given integer using the binary search algorithm."
+        },
+        {
+          "number": 7,
+          "text": "Given two strings as input, find out if these are the same or not (allowing for maximum one mismatch)."
+        },
+        {
+          "number": 8,
+          "text": "Find out the product of two 3x3 matrices. Can you generalise it to a square matrices of higher dimensions?"
+        },
+        {
+          "number": 9,
+          "text": "Find out the inverse of a given 3x3 matrix. Can you generalise it to a square matrix of higher dimensions?"
+        },
+        {
+          "number": 10,
+          "text": "Given a dataset of texts (a .txt file with paragraphs separated by a new line) and a user query, find out which paragraph from this database would be the most suitable response to the user query."  
+        }
+      ]
+    }
+  ]

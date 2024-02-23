@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+    </head>
+    <body>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #form-and-output {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+        #form-and-output form {
+            display: flex;
+            flex-direction: column;
+        }
+        #form-and-output form label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #form-and-output form select,
+        #form-and-output form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        #form-and-output form input[type="submit"] {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #form-and-output form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+        #output h2,
+        #output h3 {
+            color: #333;
+        }
+        #output p {
+            margin-top: 10px;
+            color: #666;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            color: #666;
+        }
+        #form-and-output, #result-content {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }       
+    </style>
+    <h1>CodeMentorAI</h1>
+    <h2>Your Personal AI Coding Mentor</h2>
+    <div id="form-and-output">
+        <form action="/" method="post">
+    <label for="topics"> Topics: </label>
+    <select id="topics" name="topics">
+        <option value="NA">---NA---</option>
+        {% for option in topic %}
+        <option value="{{ option }}" {% if option == topic %}selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+    </select><br/>
+    <label for="question">Question:</label>
+    <select id="questions" name="question">
+        <option value="NA">---NA---</option>
+        {% for option in question %}
+        <option value="{{ option }}" {% if option == question %}selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+    </select>
+    <br />
+    <label for="code">Code:</label><br />
+    <textarea id="code" name="code">{{ code }}</textarea><br />
+    <input type="submit" value="Submit" />
+    </form></div>
+    <h2>Result</h2>
+    <div id="result-content"></div>
+    {% if output %}
+    <h2>Output:</h2>
+    <p>{{ output }}</p>
+    {% endif %}
+    {% if output %}
+    <div id="output">
+        <h2>Evaluation</h2>
+        <h3>Correctness</h3>
+        <p>{{ output.correctness }}</p>
+        <h3>Explanation</h3>
+        <p>{{ output.explanation }}</p>
+        <h3>Efficiency</h3>
+        <p>{{ output.efficiency }}</p>
+    </div>
+        <div id="runtime">
+            <h3>Runtime Errors</h3>
+            {% if runtime %}
+            <p>{{ runtime }}</p>
+            {% else %}
+            <p>No runtime errors</p>
+            {% endif %}
+        </div>
+        <h3>Test Cases (coming soon)</h3>
+        <p>Test 1 failed</p>
+        <p>Test 2 failed</p>
+        <p>Test 3 failed</p>
+        <p>Test 4 failed</p>
+        <p>Test 5 failed</p>
+        <h3>Similar Questions (coming soon)</h3>
+        <p>Questions</p>
+        {% endif %}
+        {% if usage %}
+        <div id="Usage Stats" style="color: #FF0000;">
+            <h3 style="color: #FF0000;">Usage Stats</h3>
+            <p style="color: #FF0000;">Total Tokens: {{ usage.total_tokens }}</p>
+            <p style="color: #FF0000;">Prompt Tokens: {{ usage.prompt_tokens }}</p>
+            <p style="color: #FF0000;">Completion Tokens: {{ usage.completion_tokens }}</p>
+            <p style="color: #FF0000;">Total Cost (USD): {{ usage.total_cost }}</p>
+        </div>
+        {% endif %}
+        
+</body>
+    <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        mode: "python",
+        theme: "monokai"
+    });
+    var data;
+    async function response3(){
+        let response = await fetch('/static/problems.json');
+        let info = await response.json()
+        console.log(info)
+        data=info;
+        options(info)
+    }
+    response3();
+    const topics=document.getElementById('topics');
+    const question=document.getElementById('questions')
+    console.log(topics)
+    function options(obj){
+        obj.forEach((item) => {
+            let option = document.createElement("option");
+            option.value = item.concept;
+            option.text=item.title;
+            topics.appendChild(option);
+        });
+    }
+    topics.addEventListener('change', function() {
+        let selectedTopic = data.find(item => item.concept == this.value);
+        selectedTopic.questions.forEach((que) => {
+            let option = document.createElement("option");
+            option.setAttribute('id',`${que.number}`)
+            option.text = que.text;
+            question.appendChild(option);
+        });
+        question.value = "Select Question";
+    });
+    document.querySelector("form").addEventListener("submit", function(event){
+        event.preventDefault();
+        var code = editor.getValue();
+        var topic = document.getElementById("topics").value;
+        var question = document.getElementById("questions").value;
+        var formData = new FormData(this);
+        formData.append("code", code);
+        formData.append("topics", topic);
+        formData.append("question", question);
+        console.log("Form data:", formData);
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', '+ pair[1]); 
+        }        
+        fetch("/", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response data:", data);
+            var resultDiv = document.getElementById("result-content");
+            resultDiv.innerHTML = "";
+            resultDiv.innerHTML = `
+                <h3>Topic: ${data.topic}</h3>
+                <h3>Question: ${data.question}</h3>
+                <h3>Code:</h3>
+                <textarea id="code" style="display: none;">${data.code}</textarea>
+                <div id="code-editor"></div>
+                <h3>Correctness:</h3>
+                <p>${data.correct}</p>
+                <h4>Explanation:</h4>
+                <p>${data.explanation || "No explanation"}</p>
+                <h4>Suggestion</h4>
+                <p>${data.suggestion || "No suggestion"}</p>
+            `;
+            // Initialize CodeMirror with the provided code
+            var codeContent = document.getElementById("code").value;
+            var editor = CodeMirror(document.getElementById("code-editor"), {
+                value: codeContent,
+                lineNumbers: true,
+                mode: "python",
+                theme: "monokai",
+                readOnly: true // Make the CodeMirror editor read-only
+            });
+            // Scroll to the result-content div
+            document.getElementById("result-content").scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });        
+        });
+    </script>
+    </body>
+</html>

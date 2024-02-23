@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<h1>Problems</h1>
+
+<div id="problems"></div>
+
+<script>
+
+// Fetch problems.json file
+$.getJSON("problems.json", function(data) {
+
+  // Store problems data
+  var problems = data;
+
+  // Output for problems
+  var output = "<ul>";
+
+  // Loop through problems
+  problems.forEach(problem => {
+    output += "<li>";
+    output += "<h3>Concept " + problem.concept + ": " + problem.title + "</h3>";
+    
+    output += "<ul>";
+    problem.questions.forEach(question => {
+      output += "<li>Question " + question.number + ": " + question.text + "</li>";
+    });
+    output += "</ul>";
+
+    output += "</li>";
+  });
+
+  output += "</ul>";
+
+  // Output problems
+  $("#problems").html(output);
+
+});
+
+</script>
+
+</body>
+</html>

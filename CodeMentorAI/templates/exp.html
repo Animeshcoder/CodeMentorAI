@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #form-and-output {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+        #form-and-output form {
+            display: flex;
+            flex-direction: column;
+        }
+        #form-and-output form label {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #form-and-output form select,
+        #form-and-output form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        #form-and-output form input[type="submit"] {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #form-and-output form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="form-and-output">
+        <form action="/" method="post">
+            <label for="topic">Topics:</label>
+            <select id="topic" name="title"></select>
+            <label for="question">Question:</label>
+            <select id="questions" name="question">
+                <option value="NA">---NA---</option>
+            </select>
+            <label for="code">Code:</label>
+            <textarea id="code" name="code"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

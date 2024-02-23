@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+</head>
+
+<body>
+
+    <h2>Code Checker Result</h2>
+
+    <div id="result-content">
+        <h3>Topic: {{ topic }}</h3>
+        <h3>Question: {{ question }}</h3>
+        <h3>Code:</h3>
+        <textarea id="code" style="display: none;">{{ code }}</textarea>
+        <div id="code-editor"></div>
+
+        <h3>Correctness:</h3>
+        <p>{{ correct }}</p>
+        <h4>Explanation:</h4>
+        <p>{{ explanation or "No explanation" }}</p>
+        <h4>Suggestion</h4>
+        <p>{{ suggestion or "No suggestion" }}</p>
+    </div>
+
+    <script>
+        // Get the code from the hidden textarea
+        var codeContent = document.getElementById("code").value;
+
+        // Initialize CodeMirror with the provided code
+        var editor = CodeMirror(document.getElementById("code-editor"), {
+            value: codeContent,
+            lineNumbers: true,
+            mode: "python",
+            theme: "monokai",
+            readOnly: true // Make the CodeMirror editor read-only
+        });
+    </script>
+
+</body>
+
+</html>
